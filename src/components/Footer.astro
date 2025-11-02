@@ -1,0 +1,22 @@
+---
+const currentYear = new Date().getFullYear();
+const socialLinks = [
+  { icon: 'fab fa-instagram', url: '#' },
+  { icon: 'fab fa-twitter', url: '#' },
+  { icon: 'fab fa-facebook', url: '#' },
+  { icon: 'fab fa-tiktok', url: '#' }
+];
+---
+
+<footer class="bg-gradient-to-r from-purple-600 to-pink-500 text-white py-8 animate-pulse">
+  <div class="container mx-auto px-4 text-center">
+    <p class="text-xl font-bold animate-bounce">&copy; {currentYear} Chicken Cabaret. All rights reserved.</p>
+    <div class="flex justify-center gap-6 mt-4">
+      {socialLinks.map((link) => (
+        <a href={link.url} class="hover:scale-125 transition-transform duration-300">
+          <i class={`${link.icon} text-2xl`}></i>
+        </a>
+      ))}
+    </div>
+  </div>
+</footer>

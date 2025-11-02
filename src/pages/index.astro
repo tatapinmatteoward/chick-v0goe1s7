@@ -1,0 +1,178 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const pageTitle = "Welcome to Chicken Cabaret";
+const pageDescription = "Dive into the feathered frenzy of poultry pop culture with vibrant animations, quirky tales, and cluck-tastic entertainment at Chicken Cabaret!";
+const latestClucks = [
+  { title: "Animated short", content: "The Disco Duck Dance-Off" },
+  { title: "Feature article", content: "Top 10 Rooster Rebels in Cinema" },
+  { title: "Blog post", content: "From Henhouse to Hollywood: The Rise of Poultry Pop Stars" }
+];
+const features = [
+  { 
+    icon: "fas fa-feather-alt",
+    title: "Feathered Fun",
+    description: "Discover hilarious chicken memes, rooster rockstars, and egg-cellent adventures."
+  },
+  { 
+    icon: "fas fa-palette",
+    title: "Vibrant Vibes",
+    description: "Immerse yourself in colorful, animated spectacles inspired by cabaret glamour."
+  },
+  { 
+    icon: "fas fa-music",
+    title: "Pop Culture Poultry",
+    description: "From Chicken Run tributes to real-life farmyard fables, we've got the scoop on avian icons."
+  }
+];
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <!-- Hero Section -->
+  <section class="relative py-20 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-r from-purple-600 via-pink-500 to-purple-700 z-0"></div>
+    <div class="absolute inset-0 opacity-20">
+      <div class="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxjaXJjbGUgY3g9IjIwIiBjeT0iMjAiIHI9IjEiIGZpbGw9IiNmZmYiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjcGF0dGVybikiLz48L3N2Zz4=')]"></div>
+    </div>
+    
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="flex flex-col md:flex-row items-center justify-between">
+        <div class="md:w-1/2 mb-10 md:mb-0 text-center md:text-left">
+          <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 animate-bounce">
+            <span class="block">Cluck into the</span>
+            <span class="block text-yellow-300">Feathered World</span>
+          </h1>
+          <p class="text-xl text-pink-100 mb-8 max-w-lg mx-auto md:mx-0">
+            Welcome to Chicken Cabaret, where the hens are strutting their stuff and the roosters are crowing hits!
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+            <button class="px-8 py-3 bg-yellow-400 hover:bg-yellow-300 text-purple-900 font-bold rounded-full transform transition duration-300 hover:scale-105 shadow-lg">
+              Join the Flock
+            </button>
+            <button class="px-8 py-3 bg-transparent border-2 border-white text-white hover:bg-white hover:text-purple-900 font-bold rounded-full transform transition duration-300 hover:scale-105">
+              Watch Now
+            </button>
+          </div>
+        </div>
+        
+        <div class="md:w-1/2 flex justify-center">
+          <div class="relative">
+            <div class="w-64 h-64 md:w-80 md:h-80 bg-yellow-400 rounded-full flex items-center justify-center animate-spin-slow">
+              <div class="w-56 h-56 md:w-72 md:h-72 bg-white rounded-full flex items-center justify-center">
+                <div class="w-48 h-48 md:w-64 md:h-64 bg-yellow-200 rounded-full flex items-center justify-center animate-pulse">
+                  <i class="fas fa-egg text-6xl md:text-8xl text-purple-700"></i>
+                </div>
+              </div>
+            </div>
+            
+            <div class="absolute -top-4 -right-4 bg-pink-500 text-white p-3 rounded-full transform rotate-12 animate-bounce">
+              <i class="fas fa-feather-alt text-xl"></i>
+            </div>
+            
+            <div class="absolute -bottom-4 -left-4 bg-purple-500 text-white p-3 rounded-full transform -rotate-12 animate-bounce" style="animation-delay: 0.5s">
+              <i class="fas fa-crown text-xl"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-20 bg-gradient-to-br from-purple-50 to-pink-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-purple-900 mb-4">Why Chicken Cabaret?</h2>
+        <div class="w-24 h-1 bg-pink-500 mx-auto"></div>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {features.map((feature, index) => (
+          <div 
+            key={index} 
+            class="bg-white rounded-2xl shadow-xl p-8 transform transition duration-500 hover:-translate-y-4 hover:shadow-2xl"
+          >
+            <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mb-6">
+              <i class={`${feature.icon} text-white text-2xl`}></i>
+            </div>
+            <h3 class="text-2xl font-bold text-purple-900 mb-3">{feature.title}</h3>
+            <p class="text-gray-600">{feature.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Latest Clucks Section -->
+  <section class="py-20 bg-gradient-to-r from-purple-700 to-pink-600">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-white mb-4">Latest Clucks</h2>
+        <p class="text-pink-100 max-w-2xl mx-auto">Stay tuned for our freshest content featuring poultry pop culture and feathered fun!</p>
+        <div class="w-24 h-1 bg-yellow-300 mx-auto mt-4"></div>
+      </div>
+      
+      <div class="max-w-4xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {latestClucks.map((cluck, index) => (
+            <div 
+              key={index} 
+              class="bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-6 border border-white border-opacity-30 transform transition duration-300 hover:scale-105"
+            >
+              <div class="text-yellow-300 text-sm font-bold mb-2">{cluck.title}</div>
+              <h3 class="text-xl text-white font-bold">{cluck.content}</h3>
+              <div class="mt-4 flex justify-end">
+                <i class="fas fa-arrow-right text-yellow-300"></i>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-gradient-to-r from-pink-500 to-purple-600">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-4xl font-bold text-white mb-6">Ready to Cluck Along?</h2>
+      <p class="text-pink-100 text-xl max-w-2xl mx-auto mb-10">
+        Join thousands of poultry enthusiasts in celebrating the vibrant world of feathered fame!
+      </p>
+      <button class="px-10 py-4 bg-yellow-400 hover:bg-yellow-300 text-purple-900 font-bold text-lg rounded-full transform transition duration-300 hover:scale-110 shadow-lg">
+        Subscribe to the Flock
+      </button>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  @keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  
+  .animate-spin-slow {
+    animation: spin-slow 20s linear infinite;
+  }
+  
+  .bounce-in {
+    animation: bounceIn 1s ease-out;
+  }
+  
+  @keyframes bounceIn {
+    0% { transform: scale(0.3); opacity: 0; }
+    50% { transform: scale(1.05); }
+    70% { transform: scale(0.9); }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  
+  .floating {
+    animation: floating 3s ease-in-out infinite;
+  }
+  
+  @keyframes floating {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+  }
+</style>

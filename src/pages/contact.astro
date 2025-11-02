@@ -1,0 +1,219 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const pageTitle = "Contact Us";
+const pageDescription = "Get in touch with the Chicken Cabaret team for all your poultry pop culture queries! We're here to cluck and discuss.";
+const contacts = [
+  { 
+    icon: "envelope", 
+    title: "Email", 
+    content: "hello@chickencabaret.com", 
+    link: "mailto:hello@chickencabaret.com" 
+  },
+  { 
+    icon: "twitter", 
+    title: "Twitter", 
+    content: "@ChickenCabaret", 
+    link: "https://twitter.com/ChickenCabaret" 
+  },
+  { 
+    icon: "instagram", 
+    title: "Instagram", 
+    content: "@chickencabaret", 
+    link: "https://instagram.com/chickencabaret" 
+  },
+  { 
+    icon: "facebook", 
+    title: "Facebook", 
+    content: "Chicken Cabaret Official", 
+    link: "https://facebook.com/chickencabaret" 
+  }
+];
+
+const reasons = [
+  {
+    title: "Partnerships & Sponsorships",
+    description: "Let's strut together on exciting projects!"
+  },
+  {
+    title: "Feedback & Suggestions",
+    description: "Help us make our cabaret even more egg-cellent."
+  },
+  {
+    title: "General Inquiries",
+    description: "From event bookings to merch questions— we've got you covered."
+  }
+];
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <!-- Hero Section -->
+  <div class="relative overflow-hidden bg-gradient-to-br from-purple-600 via-pink-500 to-purple-700 py-24">
+    <div class="absolute inset-0 mix-blend-multiply">
+      <div class="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDYwIDYwIj48Y2lyY2xlIGN4PSIzMCIgY3k9IjMwIiByPSIxIiBmaWxsPSIjZmZmIiBvcGFjaXR5PSIwLjA1Ii8+PC9zdmc+')] opacity-20"></div>
+    </div>
+    
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="flex flex-col items-center text-center">
+        <div class="mb-6 animate-bounce-slow">
+          <i class="fas fa-feather text-5xl text-yellow-300"></i>
+        </div>
+        <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 animate-pop-in">
+          Contact Us
+        </h1>
+        <p class="text-xl md:text-2xl text-purple-100 max-w-3xl animate-fade-in">
+          Cluck into the Feathered World of Poultry Pop Culture!
+        </p>
+        <div class="mt-8 flex space-x-4 animate-pulse">
+          <div class="w-3 h-3 bg-yellow-300 rounded-full"></div>
+          <div class="w-3 h-3 bg-yellow-300 rounded-full animation-delay-100"></div>
+          <div class="w-3 h-3 bg-yellow-300 rounded-full animation-delay-200"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Why Contact Section -->
+  <section class="py-16 bg-gradient-to-br from-pink-50 to-purple-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-purple-800 mb-4">Why Contact Us?</h2>
+        <div class="w-24 h-1 bg-pink-500 mx-auto"></div>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {reasons.map((reason, index) => (
+          <div 
+            key={index} 
+            class="bg-white rounded-2xl shadow-xl p-8 transform transition-all duration-500 hover:scale-105 hover:shadow-2xl border-4 border-dashed border-purple-200"
+            style={{ animationDelay: `${index * 100}ms` }}
+          >
+            <div class="text-center">
+              <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-purple-100 text-purple-700 mb-6 animate-bounce">
+                <i class="fas fa-chicken text-2xl"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-purple-800 mb-4">{reason.title}</h3>
+              <p class="text-gray-600">{reason.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Info Section -->
+  <section class="py-16 bg-gradient-to-br from-purple-700 to-pink-600">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-white mb-4">How to Reach Us</h2>
+        <p class="text-xl text-purple-100 max-w-2xl mx-auto">
+          We're always clucking to chat! Drop us a line through any of these channels.
+        </p>
+        <div class="w-24 h-1 bg-yellow-300 mx-auto mt-4"></div>
+      </div>
+      
+      <div class="max-w-4xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {contacts.map((contact, index) => (
+            <a 
+              key={index}
+              href={contact.link}
+              class="bg-white rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl flex flex-col items-center text-center group"
+            >
+              <div class="w-16 h-16 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center mb-4 group-hover:animate-spin">
+                <i class={`fas fa-${contact.icon} text-2xl text-white`}></i>
+              </div>
+              <h3 class="text-xl font-bold text-purple-800 mb-2">{contact.title}</h3>
+              <p class="text-gray-600">{contact.content}</p>
+            </a>
+          ))}
+        </div>
+      </div>
+      
+      <div class="mt-16 text-center">
+        <div class="inline-block bg-white rounded-2xl shadow-xl p-8 max-w-2xl">
+          <h3 class="text-2xl font-bold text-purple-800 mb-4">Send us a Peck!</h3>
+          <p class="text-gray-600 mb-6">
+            Got questions, ideas, or just want to chat? Our team is ready to ruffle feathers with you.
+          </p>
+          <button class="px-8 py-3 bg-gradient-to-r from-purple-600 to-pink-500 text-white font-bold rounded-full shadow-lg transform transition-all duration-300 hover:scale-110 hover:shadow-xl">
+            Send Message
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonial Section -->
+  <section class="py-16 bg-gradient-to-r from-yellow-300 to-orange-400">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-purple-800 mb-4">What Our Fans Say</h2>
+        <div class="w-24 h-1 bg-purple-800 mx-auto"></div>
+      </div>
+      
+      <div class="max-w-4xl mx-auto">
+        <div class="bg-white rounded-2xl shadow-xl p-8 transform rotate-3">
+          <div class="flex items-start">
+            <div class="mr-4">
+              <div class="w-16 h-16 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center">
+                <i class="fas fa-crown text-white text-xl"></i>
+              </div>
+            </div>
+            <div>
+              <p class="text-lg italic text-gray-700">"This place brings so much joy to my life! The energy is absolutely magical."</p>
+              <p class="mt-4 font-bold text-purple-800">- Chicken Lovers Club</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+    40% {transform: translateY(-20px);}
+    60% {transform: translateY(-10px);}
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes popIn {
+    0% { transform: scale(0.5); opacity: 0; }
+    70% { transform: scale(1.1); }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  
+  .animate-bounce-slow {
+    animation: bounce 2s infinite;
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 1s ease-out;
+  }
+  
+  .animate-pop-in {
+    animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  
+  .animation-delay-100 {
+    animation-delay: 0.1s;
+  }
+  
+  .animation-delay-200 {
+    animation-delay: 0.2s;
+  }
+  
+  .transform.rotate-3 {
+    transform: rotate(3deg);
+  }
+  
+  .transform.-rotate-3 {
+    transform: rotate(-3deg);
+  }
+</style>
